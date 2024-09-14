@@ -1,0 +1,21 @@
+\frametitle{Implementation: Mesh generation}
+\Large
+  \textbf{GpsGenerator} class definition:
+  \vspace{1em}
+  \begin{lstlisting}[language=C++]
+class GpsGenerator : public TerrainGenerator
+{
+public:
+    GpsGenerator(int meshSize, double latitude, double longitude, unsigned zoomLevel, std::string const &apiKey);
+    virtual ~GpsGenerator();
+
+    std::unique_ptr<mesh_type> generate() override;
+
+private:
+    int M_meshSize;
+    double M_latitude;
+    double M_longitude;
+    unsigned M_zoomLevel;
+    std::string M_apiKey;
+};
+  \end{lstlisting}

@@ -1,0 +1,23 @@
+name: Build LaTeX
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v2
+
+      - name: Install LaTeX
+        run: sudo apt-get install texlive-latex-base texlive-fonts-recommended texlive-fonts-extra texlive-latex-extra
+
+      - name: Compile LaTeX documents
+        run: |
+          pdflatex presentation.tex
+
+      - name: Upload PDFs
+        uses: actions/upload-artifact@v3
+        with:
+          name: resume-pdfs
+          path: |
+            rpresentation.pdf

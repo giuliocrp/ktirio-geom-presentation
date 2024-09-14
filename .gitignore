@@ -1,0 +1,13 @@
+# LaTeX compilation files
+*.pdf
+*.snm
+*.gz
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.toc
+
+# MacOS
+.DS_Store
